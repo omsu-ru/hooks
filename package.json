@@ -1,6 +1,6 @@
 {
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/index.mjs",
   "publishConfig": {
     "registry": "https://npm.pkg.github/@omsu-ru"
   },
@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/omsu-ru/hooks.git"
   },
-  "typings": "lib/index.d.mts",
+  "typings": "dist/index.d.mts",
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
