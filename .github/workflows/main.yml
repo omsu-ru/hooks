@@ -3,30 +3,32 @@ on: workflow_dispatch
 
 jobs:
   release:
-    name: Release
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
-
       - name: Lint
         run: npm lint
-
       - name: Build
         run: npm run build
       - name: Release
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
