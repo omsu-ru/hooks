@@ -3,6 +3,9 @@
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github/@omsu-ru"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/omsu-ru/hooks.git"
@@ -11,9 +14,6 @@
     "dist",
     "src"
   ],
-  "engines": {
-    "node": ">=10"
-  },
   "scripts": {
     "build": "tsup",
     "size": "size-limit",
