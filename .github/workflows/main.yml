@@ -15,6 +15,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20.x'
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@omsu-ru'
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
       - name: Build
@@ -24,3 +27,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
