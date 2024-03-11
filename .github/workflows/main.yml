@@ -18,8 +18,8 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@omsu-ru'
-      - name: Install deps and build (with cache)
-        uses: bahmutov/npm-install@v1
+      - name: Install deps and build
+        uses: npm ci
       - name: Build
         run: npm run build
       - name: Release
