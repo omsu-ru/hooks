@@ -19,7 +19,7 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@omsu-ru'
       - name: Install deps and build
-        uses: npm ci
+        uses: npm run ci
       - name: Build
         run: npm run build
       - name: Release
