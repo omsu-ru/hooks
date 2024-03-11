@@ -1,15 +1,10 @@
-name: CI
-on:
-  workflow_dispatch:
+name: Build
+on: push
 
 jobs:
   build:
     name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
 
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -18,10 +13,10 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Use Node ${{ matrix.node }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
 
@@ -33,7 +28,3 @@ jobs:
 
       - name: Build
         run: npm run build
-      - name: Release
-        run: npx semantic-release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
