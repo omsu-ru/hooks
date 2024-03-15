@@ -14,3 +14,16 @@ const config = {
     '@semantic-release/github',
   ],
 };
+
+// "releaseRules": [
+//     {"tag": "breaking", "release": "major"},
+//     {"tag": "chore", "release": false},
+//     {"tag": "ci", "release": false},
+//     {"tag": "docs", "release": false},
+//     {"tag": "feat", "release": "minor"},
+//     {"tag": "fix", "release": "patch"},
+//     {"tag": "refactor", "release": "patch"},
+//     {"tag": "security", "release": "patch"},
+//     {"tag": "style", "release": "patch"},
+//     {"tag": "test", "release": false}
+//   ]
