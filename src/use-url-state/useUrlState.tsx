@@ -22,7 +22,7 @@ import {
   usePathname,
   useRouter,
   useSearchParams,
-} from 'next/navigation';
+} from 'next/navigation.js';
 import { useEffect, useState } from 'react';
 
 type Props = {
